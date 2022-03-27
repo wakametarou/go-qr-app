@@ -1,14 +1,12 @@
-// Goのすべてのコードは、必ずいずれかのパッケージに属します。
-// そのため、パッケージの名前をファイルの冒頭で宣言する必要があります。
 package main
 
-// このファイルの中で使用するパッケージのインポートの宣言です。
 import (
+	"flag"
 	"fmt"
 )
 
-// 関数の定義
-// func 関数名(引数) 返り値
 func main() {
-	fmt.Println("Hello world🍣")
+	flag.Parse()
+	arg := flag.Arg(0)
+	fmt.Printf("Hello %s\n", arg)
 }
