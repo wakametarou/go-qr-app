@@ -21,13 +21,16 @@ import (
 // }
 
 func main() {
+	outputPath := flag.String("o", "./image.png", "Path to output file")
+
 	flag.Parse()
 	url := flag.Arg(0)
 	if url == "" {
 		fmt.Println("URL is empty")
 		return
 	}
-	file, err := os.Create("./qr.png")
+
+	file, err := os.Create(*outputPath)
 	if err != nil {
 		fmt.Printf("file generation failed: %v\n", err)
 		return
